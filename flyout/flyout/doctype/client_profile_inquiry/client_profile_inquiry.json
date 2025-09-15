@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-14 00:14:02.206873",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "inquiry",
+  "inquiry_date",
+  "service_type",
+  "inquiry_status",
+  "providers_matched"
+ ],
+ "fields": [
+  {
+   "fieldname": "inquiry",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Inquiry",
+   "options": "Inquiry"
+  },
+  {
+   "fetch_from": "inquiry.creation",
+   "fieldname": "inquiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fetch_from": "inquiry.service_type",
+   "fieldname": "service_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Service Type"
+  },
+  {
+   "fetch_from": "inquiry.status",
+   "fieldname": "inquiry_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status"
+  },
+  {
+   "fieldname": "providers_matched",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Providers"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-14 00:32:26.324223",
+ "modified_by": "Administrator",
+ "module": "Flyout",
+ "name": "Client Profile Inquiry",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

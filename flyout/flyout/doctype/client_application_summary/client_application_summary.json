@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-10 15:19:50.076576",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "application",
+  "application_title",
+  "application_date",
+  "provider",
+  "status",
+  "application_stage",
+  "priority",
+  "estimated_completion",
+  "progress_percentage",
+  "documents_count",
+  "communications_count",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "application",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Application",
+   "options": "Application",
+   "reqd": 1
+  },
+  {
+   "fieldname": "application_title",
+   "fieldtype": "Data",
+   "label": "Application Title"
+  },
+  {
+   "fieldname": "application_date",
+   "fieldtype": "Date",
+   "label": "Application Date"
+  },
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "label": "Provider",
+   "options": "Provider"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "New\nIn Review\nApproved\nRejected\nOn Hold\nCompleted"
+  },
+  {
+   "fieldname": "application_stage",
+   "fieldtype": "Data",
+   "label": "Current Stage"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "fieldname": "estimated_completion",
+   "fieldtype": "Date",
+   "label": "Estimated Completion"
+  },
+  {
+   "fieldname": "progress_percentage",
+   "fieldtype": "Percent",
+   "label": "Progress %"
+  },
+  {
+   "fieldname": "documents_count",
+   "fieldtype": "Int",
+   "label": "Documents Count"
+  },
+  {
+   "fieldname": "communications_count",
+   "fieldtype": "Int",
+   "label": "Communications Count"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-10 16:50:04.289026",
+ "modified_by": "Administrator",
+ "module": "Flyout",
+ "name": "Client Application Summary",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

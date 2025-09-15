@@ -1,0 +1,28 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+include *.yml
+include *.yaml
+include *.sh
+recursive-include flyout *.css
+recursive-include flyout *.csv
+recursive-include flyout *.html
+recursive-include flyout *.ico
+recursive-include flyout *.js
+recursive-include flyout *.json
+recursive-include flyout *.md
+recursive-include flyout *.png
+recursive-include flyout *.py
+recursive-include flyout *.svg
+recursive-include flyout *.txt
+recursive-include flyout/api *.py
+recursive-include flyout/public *.js
+recursive-include flyout/public *.css
+recursive-include flyout/www *.html
+recursive-include flyout/www *.py
+recursive-exclude flyout *.pyc
+recursive-exclude flyout __pycache__
+

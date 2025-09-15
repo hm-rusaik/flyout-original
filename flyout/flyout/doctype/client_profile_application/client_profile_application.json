@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-14 00:14:23.438998",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "application",
+  "application_type",
+  "provider",
+  "application_date",
+  "application_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "application",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Application",
+   "options": "Application"
+  },
+  {
+   "fieldname": "application_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "University Application\nVisa Application\nGeneral Application"
+  },
+  {
+   "fetch_from": "application.provider",
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Provider",
+   "options": "Provider"
+  },
+  {
+   "fetch_from": "application.creation",
+   "fieldname": "application_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fetch_from": "application.status",
+   "fieldname": "application_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-14 00:32:25.918917",
+ "modified_by": "Administrator",
+ "module": "Flyout",
+ "name": "Client Profile Application",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

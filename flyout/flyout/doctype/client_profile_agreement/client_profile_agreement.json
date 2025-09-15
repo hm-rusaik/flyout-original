@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-14 00:14:15.913256",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "agreement",
+  "provider",
+  "agreement_date",
+  "agreement_amount",
+  "agreement_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "agreement",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Agreement",
+   "options": "Agreement"
+  },
+  {
+   "fetch_from": "agreement.provider",
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Provider",
+   "options": "Provider"
+  },
+  {
+   "fetch_from": "agreement.agreement_date",
+   "fieldname": "agreement_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date"
+  },
+  {
+   "fetch_from": "agreement.total_amount",
+   "fieldname": "agreement_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount"
+  },
+  {
+   "fetch_from": "agreement.agreement_status",
+   "fieldname": "agreement_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-14 00:32:26.042324",
+ "modified_by": "Administrator",
+ "module": "Flyout",
+ "name": "Client Profile Agreement",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

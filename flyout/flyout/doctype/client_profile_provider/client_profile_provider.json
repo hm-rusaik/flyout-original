@@ -1,0 +1,65 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-09-14 00:14:31.661914",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "provider",
+  "provider_name",
+  "relationship_type",
+  "rating",
+  "last_interaction"
+ ],
+ "fields": [
+  {
+   "fieldname": "provider",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Provider",
+   "options": "Provider"
+  },
+  {
+   "fetch_from": "provider.company_name",
+   "fieldname": "provider_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Provider Name"
+  },
+  {
+   "fieldname": "relationship_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Relationship",
+   "options": "Preferred\nRegular\nBlocked"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "in_list_view": 1,
+   "label": "Rating"
+  },
+  {
+   "fieldname": "last_interaction",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Last Interaction"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-09-14 00:32:25.792611",
+ "modified_by": "Administrator",
+ "module": "Flyout",
+ "name": "Client Profile Provider",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

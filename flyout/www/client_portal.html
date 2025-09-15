@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal - Flyout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --success-color: #059669;
+            --warning-color: #d97706;
+            --danger-color: #dc2626;
+        }
+
+        body {
+            background-color: #f8fafc;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), #1e40af);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .sidebar {
+            background: white;
+            min-height: calc(100vh - 76px);
+            box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+            padding: 1.5rem 0;
+        }
+
+        .sidebar .nav-link {
+            color: #64748b;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0;
+            margin: 0.25rem 0;
+            transition: all 0.2s;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: var(--primary-color);
+            background-color: #eff6ff;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .sidebar .nav-link i {
+            width: 20px;
+            margin-right: 0.75rem;
+        }
+
+        .main-content {
+            padding: 2rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .metric-label {
+            color: #64748b;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .status-draft { background-color: #fef3c7; color: #92400e; }
+        .status-submitted { background-color: #dbeafe; color: #1e40af; }
+        .status-review { background-color: #e0e7ff; color: #3730a3; }
+        .status-matched { background-color: #d1fae5; color: #065f46; }
+        .status-converted { background-color: #a7f3d0; color: #047857; }
+        .status-cancelled { background-color: #fee2e2; color: #991b1b; }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+
+        .inquiry-card {
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.2s;
+        }
+
+        .inquiry-card:hover {
+            border-left-color: var(--success-color);
+        }
+
+        .progress-bar-custom {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+            transition: width 0.3s ease;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                min-height: auto;
+            }
+            
+            .main-content {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-paper-plane me-2"></i>Flyout Client Portal
+            </a>
+            
+            <div class="d-flex align-items-center">
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                        <div class="user-avatar me-2">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span id="userName">Client User</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" onclick="showProfile()">
+                            <i class="fas fa-user-cog me-2"></i>Profile Settings
+                        </a></li>
+                        <li><a class="dropdown-item" href="#" onclick="showNotifications()">
+                            <i class="fas fa-bell me-2"></i>Notifications
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()">
+                            <i class="fas fa-sign-out-alt me-2"></i>Logout
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 px-0">
+                <div class="sidebar">
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#" onclick="showDashboard()">
+                            <i class="fas fa-tachometer-alt"></i>Dashboard
+                        </a>
+                        <a class="nav-link" href="#" onclick="showInquiries()">
+                            <i class="fas fa-question-circle"></i>My Inquiries
+                        </a>
+                        <a class="nav-link" href="#" onclick="showApplications()">
+                            <i class="fas fa-file-alt"></i>Applications
+                        </a>
+                        <a class="nav-link" href="#" onclick="showNewInquiry()">
+                            <i class="fas fa-plus-circle"></i>New Inquiry
+                        </a>
+                        <a class="nav-link" href="#" onclick="showDocuments()">
+                            <i class="fas fa-folder"></i>Documents
+                        </a>
+                        <a class="nav-link" href="#" onclick="showMessages()">
+                            <i class="fas fa-envelope"></i>Messages
+                        </a>
+                        <a class="nav-link" href="#" onclick="showProfile()">
+                            <i class="fas fa-user"></i>Profile
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10">
+                <div class="main-content" id="mainContent">
+                    <!-- Dashboard Content -->
+                    <div id="dashboardView">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2>Welcome back, <span id="clientName">Client</span>!</h2>
+                            <button class="btn btn-primary" onclick="showNewInquiry()">
+                                <i class="fas fa-plus me-2"></i>New Inquiry
+                            </button>
+                        </div>
+
+                        <!-- Metrics Cards -->
+                        <div class="row mb-4">
+                            <div class="col-md-3 mb-3">
+                                <div class="dashboard-card text-center">
+                                    <div class="metric-value" id="totalInquiries">0</div>
+                                    <div class="metric-label">Total Inquiries</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="dashboard-card text-center">
+                                    <div class="metric-value" id="activeApplications">0</div>
+                                    <div class="metric-label">Active Applications</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="dashboard-card text-center">
+                                    <div class="metric-value" id="completedApplications">0</div>
+                                    <div class="metric-label">Completed</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="dashboard-card text-center">
+                                    <div class="metric-value" id="totalProviders">0</div>
+                                    <div class="metric-label">Matched Providers</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="dashboard-card">
+                                    <h5 class="mb-3">
+                                        <i class="fas fa-clock me-2"></i>Recent Activity
+                                    </h5>
+                                    <div id="recentActivity" class="activity-list">
+                                        <!-- Activity items will be loaded here -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="dashboard-card">
+                                    <h5 class="mb-3">
+                                        <i class="fas fa-chart-line me-2"></i>Quick Stats
+                                    </h5>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Inquiry Success Rate</span>
+                                            <strong id="inquirySuccessRate">0%</strong>
+                                        </div>
+                                        <div class="progress-bar-custom">
+                                            <div class="progress-bar-fill" id="successRateBar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Avg. Response Time</span>
+                                            <strong id="avgResponseTime">0 days</strong>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <span>Profile Completion</span>
+                                            <strong id="profileCompletion">0%</strong>
+                                        </div>
+                                        <div class="progress-bar-custom">
+                                            <div class="progress-bar-fill" id="profileCompletionBar" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Other views will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="/assets/flyout/js/client_portal.js"></script>
+</body>
+</html>

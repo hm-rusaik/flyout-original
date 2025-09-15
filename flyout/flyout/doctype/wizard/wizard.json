@@ -1,0 +1,166 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{full_name}-{service_request}-{destination_country}-{###}",
+ "creation": "2025-09-12 01:02:56.402525",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "personal_info_section",
+  "full_name",
+  "age",
+  "country",
+  "gender",
+  "column_break_jajo",
+  "email",
+  "phone_number",
+  "current_education_level",
+  "preffered_language",
+  "request_section",
+  "service_request",
+  "destination_country",
+  "column_break_rwju",
+  "study_level",
+  "english_level",
+  "budget_section",
+  "budget"
+ ],
+ "fields": [
+  {
+   "fieldname": "personal_info_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Info"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "label": "Full Name"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "column_break_jajo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "request_section",
+   "fieldtype": "Section Break",
+   "label": "Request"
+  },
+  {
+   "fieldname": "service_request",
+   "fieldtype": "Select",
+   "label": "Service Request",
+   "options": "\nStudy Abroad\nWork Visa"
+  },
+  {
+   "fieldname": "column_break_rwju",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "destination_country",
+   "fieldtype": "Link",
+   "label": "Destination Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "current_education_level",
+   "fieldtype": "Select",
+   "label": "Current Education Level",
+   "options": "\nO Level\nA Level\nCertificate\nHigher National Diploma\nBachelors\nMasters\nPhD"
+  },
+  {
+   "fieldname": "study_level",
+   "fieldtype": "Select",
+   "label": "Study Level",
+   "options": "\nBachelors\nMasters\nPhD"
+  },
+  {
+   "fieldname": "english_level",
+   "fieldtype": "Select",
+   "label": "English Level",
+   "options": "\nA1\nA2\nB1\nB2\nC1\nC2"
+  },
+  {
+   "fieldname": "budget_section",
+   "fieldtype": "Section Break",
+   "label": "Budget"
+  },
+  {
+   "fieldname": "budget",
+   "fieldtype": "Select",
+   "label": "Budget",
+   "options": "Less than 1 Million\nLess than 2 Million\nLess than 3 Million\nLess than 4 Million\nLess than 5 Million\nLess than 6 Million"
+  },
+  {
+   "fieldname": "preffered_language",
+   "fieldtype": "Select",
+   "label": "Preffered Language",
+   "options": "\nEnglish\nTamil\nSinhala"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nNot to mention"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-09-12 01:41:59.633249",
+ "modified_by": "Administrator",
+ "module": "Flyout",
+ "name": "Wizard",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
